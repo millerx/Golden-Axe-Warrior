@@ -7,6 +7,9 @@
     <meta name="description" content="Grid of 15x15 images with coordinate links">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        body, .coordinate-header, h1, h2, p, a, div {
+            color: #fff;
+        }
         .grid-container {
             display: grid;
             grid-template-columns: repeat(15, 1fr);
@@ -57,11 +60,12 @@
             margin-top: 20px;
             padding-top: 10px;
             border-top: 1px solid #eee;
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="bg-white p-4">
-    <h1 class="text-2xl font-bold text-center mb-6">15x15 Image Grid</h1>
+<body class="bg-black p-4">
+    <h1 class="text-2xl font-bold text-center mb-6">Golden Axe Warrior</h1>
     
     <div class="grid-container">
         <!-- Grid will be populated by JavaScript -->
