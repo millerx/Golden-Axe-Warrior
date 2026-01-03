@@ -1,393 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Axe Warrior</title>
-    <meta name="description" content="Grid of 15x15 images with coordinate links">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            color: #fff;
-        }
-        p {
-            margin-bottom: 8px;
-            padding-bottom: 4px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(15, 1fr);
-            gap: 0;
-            width: 100%;
-            margin: 0 auto;
-        }
-        
-        .grid-item {
-            width: 100%;
-            height: 80px;
-            aspect-ratio: 1;
-            position: relative;
-        }
-        
-        .grid-item img {
-            width: 128px;
-            height: 80px;
-        }
-        
-        .coordinate-link {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 2px 4px;
-            font-size: 10px;
-            font-weight: bold;
-            color: #333;
-            text-decoration: none;
-            border-radius: 2px;
-        }
-        
-        .coordinate-link:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .coordinate-headers {
-            margin-top: 40px;
-            padding: 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .coordinate-header {
-            margin-top: 20px;
-            padding-top: 10px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Axe Warrior</title>
+  <meta name="description" content="Grid of 15x15 images with coordinate links">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      color: #fff;
+    }
+
+    p {
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 0;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .grid-item {
+      width: 100%;
+      height: 80px;
+      aspect-ratio: 1;
+      position: relative;
+    }
+
+    .grid-item img {
+      width: 128px;
+      height: 80px;
+    }
+
+    .coordinate-link {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 2px 4px;
+      font-size: 10px;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    .coordinate-link:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .coordinate-headers {
+      margin-top: 40px;
+      padding: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .coordinate-header {
+      margin-top: 20px;
+      padding-top: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body class="bg-black p-4">
-    <h1 class="text-2xl font-bold text-center mb-6">Golden Axe Warrior</h1>
-    
-    <div class="grid-container">
-        <!-- Grid will be populated by JavaScript -->
-    </div>
+  <h1 class="text-2xl font-bold text-center mb-6">Golden Axe Warrior</h1>
 
-    <div class="coordinate-headers" id="coordinateHeaders">
-        <h2 id="coord-1-1" class="coordinate-header">Coordinate 1x1</h2>
-        <h2 id="coord-1-2" class="coordinate-header">Coordinate 1x2</h2>
-        <h2 id="coord-1-3" class="coordinate-header">Coordinate 1x3</h2>
-        <h2 id="coord-1-4" class="coordinate-header">Coordinate 1x4</h2>
-        <h2 id="coord-1-5" class="coordinate-header">Coordinate 1x5</h2>
-        <h2 id="coord-1-6" class="coordinate-header">Coordinate 1x6</h2>
-        <h2 id="coord-1-7" class="coordinate-header">Coordinate 1x7</h2>
-        <h2 id="coord-1-8" class="coordinate-header">Coordinate 1x8</h2>
-        <h2 id="coord-1-9" class="coordinate-header">Coordinate 1x9</h2>
-        <h2 id="coord-1-10" class="coordinate-header">Coordinate 1x10</h2>
-        <h2 id="coord-1-11" class="coordinate-header">Coordinate 1x11</h2>
-        <h2 id="coord-1-12" class="coordinate-header">Coordinate 1x12</h2>
-        <h2 id="coord-1-13" class="coordinate-header">Coordinate 1x13</h2>
-        <h2 id="coord-1-14" class="coordinate-header">Coordinate 1x14</h2>
-        <h2 id="coord-1-15" class="coordinate-header">Coordinate 1x15</h2>
-        
-        <h2 id="coord-2-1" class="coordinate-header">Coordinate 2x1</h2>
-        <h2 id="coord-2-2" class="coordinate-header">Coordinate 2x2</h2>
-        <h2 id="coord-2-3" class="coordinate-header">Coordinate 2x3</h2>
-        <h2 id="coord-2-4" class="coordinate-header">Coordinate 2x4</h2>
-        <h2 id="coord-2-5" class="coordinate-header">Coordinate 2x5</h2>
-        <h2 id="coord-2-6" class="coordinate-header">Coordinate 2x6</h2>
-        <h2 id="coord-2-7" class="coordinate-header">Coordinate 2x7</h2>
-        <h2 id="coord-2-8" class="coordinate-header">Coordinate 2x8</h2>
-        <h2 id="coord-2-9" class="coordinate-header">Coordinate 2x9</h2>
-        <h2 id="coord-2-10" class="coordinate-header">Coordinate 2x10</h2>
-        <h2 id="coord-2-11" class="coordinate-header">Coordinate 2x11</h2>
-        <h2 id="coord-2-12" class="coordinate-header">Coordinate 2x12</h2>
-        <h2 id="coord-2-13" class="coordinate-header">Coordinate 2x13</h2>
-        <h2 id="coord-2-14" class="coordinate-header">Coordinate 2x14</h2>
-        <h2 id="coord-2-15" class="coordinate-header">Coordinate 2x15</h2>
-        
-        <h2 id="coord-3-1" class="coordinate-header">Coordinate 3x1</h2>
-        <h2 id="coord-3-2" class="coordinate-header">Coordinate 3x2</h2>
-        <h2 id="coord-3-3" class="coordinate-header">Coordinate 3x3</h2>
-        <h2 id="coord-3-4" class="coordinate-header">Coordinate 3x4</h2>
-        <h2 id="coord-3-5" class="coordinate-header">Coordinate 3x5</h2>
-        <h2 id="coord-3-6" class="coordinate-header">Coordinate 3x6</h2>
-        <h2 id="coord-3-7" class="coordinate-header">Coordinate 3x7</h2>
-        <h2 id="coord-3-8" class="coordinate-header">Coordinate 3x8</h2>
-        <h2 id="coord-3-9" class="coordinate-header">Coordinate 3x9</h2>
-        <h2 id="coord-3-10" class="coordinate-header">Coordinate 3x10</h2>
-        <h2 id="coord-3-11" class="coordinate-header">Coordinate 3x11</h2>
-        <h2 id="coord-3-12" class="coordinate-header">Coordinate 3x12</h2>
-        <h2 id="coord-3-13" class="coordinate-header">Coordinate 3x13</h2>
-        <h2 id="coord-3-14" class="coordinate-header">Coordinate 3x14</h2>
-        <h2 id="coord-3-15" class="coordinate-header">Coordinate 3x15</h2>
-        
-        <h2 id="coord-4-1" class="coordinate-header">Coordinate 4x1</h2>
-        <h2 id="coord-4-2" class="coordinate-header">Coordinate 4x2</h2>
-        <h2 id="coord-4-3" class="coordinate-header">Coordinate 4x3</h2>
-        <h2 id="coord-4-4" class="coordinate-header">Coordinate 4x4</h2>
-        <h2 id="coord-4-5" class="coordinate-header">Coordinate 4x5</h2>
-        <h2 id="coord-4-6" class="coordinate-header">Coordinate 4x6</h2>
-        <h2 id="coord-4-7" class="coordinate-header">Coordinate 4x7</h2>
-        <h2 id="coord-4-8" class="coordinate-header">Coordinate 4x8</h2>
-        <h2 id="coord-4-9" class="coordinate-header">Coordinate 4x9</h2>
-        <h2 id="coord-4-10" class="coordinate-header">Coordinate 4x10</h2>
-        <h2 id="coord-4-11" class="coordinate-header">Coordinate 4x11</h2>
-        <h2 id="coord-4-12" class="coordinate-header">Coordinate 4x12</h2>
-        <h2 id="coord-4-13" class="coordinate-header">Coordinate 4x13</h2>
-        <h2 id="coord-4-14" class="coordinate-header">Coordinate 4x14</h2>
-        <h2 id="coord-4-15" class="coordinate-header">Coordinate 4x15</h2>
+  <div class="grid-container">
+    <!-- Grid will be populated by JavaScript -->
+  </div>
 
-        <h2 id="coord-5-1" class="coordinate-header">Coordinate 5x1</h2>
-        <h2 id="coord-5-2" class="coordinate-header">Coordinate 5x2</h2>
-        <h2 id="coord-5-3" class="coordinate-header">Coordinate 5x3</h2>
-        <h2 id="coord-5-4" class="coordinate-header">Coordinate 5x4</h2>
-        <h2 id="coord-5-5" class="coordinate-header">Coordinate 5x5</h2>
-        <h2 id="coord-5-6" class="coordinate-header">Coordinate 5x6</h2>
-        <h2 id="coord-5-7" class="coordinate-header">Coordinate 5x7</h2>
-        <h2 id="coord-5-8" class="coordinate-header">Coordinate 5x8</h2>
-        <h2 id="coord-5-9" class="coordinate-header">Coordinate 5x9</h2>
-        <h2 id="coord-5-10" class="coordinate-header">Coordinate 5x10</h2>
-        <h2 id="coord-5-11" class="coordinate-header">Coordinate 5x11</h2>
-        <h2 id="coord-5-12" class="coordinate-header">Coordinate 5x12</h2>
-        <h2 id="coord-5-13" class="coordinate-header">Coordinate 5x13</h2>
-        <h2 id="coord-5-14" class="coordinate-header">Coordinate 5x14</h2>
-        <h2 id="coord-5-15" class="coordinate-header">Coordinate 5x15</h2>
+  <div class="coordinate-headers" id="coordinateHeaders">
+    <!-- Headers and notes will be generated dynamically -->
+  </div>
 
-        <h2 id="coord-6-1" class="coordinate-header">Coordinate 6x1</h2>
-        <h2 id="coord-6-2" class="coordinate-header">Coordinate 6x2</h2>
-        <h2 id="coord-6-3" class="coordinate-header">Coordinate 6x3</h2>
-        <h2 id="coord-6-4" class="coordinate-header">Coordinate 6x4</h2>
-        <h2 id="coord-6-5" class="coordinate-header">Coordinate 6x5</h2>
-        <h2 id="coord-6-6" class="coordinate-header">Coordinate 6x6</h2>
-        <h2 id="coord-6-7" class="coordinate-header">Coordinate 6x7</h2>
-        <h2 id="coord-6-8" class="coordinate-header">Coordinate 6x8</h2>
-        <p>Town: Milver</p>
-        <p>Inn: free</p>
-        <p>Shop:<br/>
-            Key: 60h<br/>
-            Magic Feather: 60h<br/>
-            Magic Oil: 130h
-        </p>
-        <h2 id="coord-6-9" class="coordinate-header">Coordinate 6x9</h2>
-        <p>Start here!</p>
-        <h2 id="coord-6-10" class="coordinate-header">Coordinate 6x10</h2>
-        <h2 id="coord-6-11" class="coordinate-header">Coordinate 6x11</h2>
-        <h2 id="coord-6-12" class="coordinate-header">Coordinate 6x12</h2>
-        <h2 id="coord-6-13" class="coordinate-header">Coordinate 6x13</h2>
-        <h2 id="coord-6-14" class="coordinate-header">Coordinate 6x14</h2>
-        <h2 id="coord-6-15" class="coordinate-header">Coordinate 6x15</h2>
+  <script src="notes.js"></script>
 
-        <h2 id="coord-7-1" class="coordinate-header">Coordinate 7x1</h2>
-        <h2 id="coord-7-2" class="coordinate-header">Coordinate 7x2</h2>
-        <h2 id="coord-7-3" class="coordinate-header">Coordinate 7x3</h2>
-        <h2 id="coord-7-4" class="coordinate-header">Coordinate 7x4</h2>
-        <h2 id="coord-7-5" class="coordinate-header">Coordinate 7x5</h2>
-        <h2 id="coord-7-6" class="coordinate-header">Coordinate 7x6</h2>
-        <h2 id="coord-7-7" class="coordinate-header">Coordinate 7x7</h2>
-        <h2 id="coord-7-8" class="coordinate-header">Coordinate 7x8</h2>
-        <h2 id="coord-7-9" class="coordinate-header">Coordinate 7x9</h2>
-        <p>Shop:<br/>
-            Key: 40h<br/>
-            Magic Feather: 40h<br/>
-            Magic Oil: 70h
-        </p>
-        <h2 id="coord-7-10" class="coordinate-header">Coordinate 7x10</h2>
-        <h2 id="coord-7-11" class="coordinate-header">Coordinate 7x11</h2>
-        <p>Gamble</p>
-        <h2 id="coord-7-12" class="coordinate-header">Coordinate 7x12</h2>
-        <p>TODO: Could not kill sea monster</p>
-        <h2 id="coord-7-13" class="coordinate-header">Coordinate 7x13</h2>
-        <h2 id="coord-7-14" class="coordinate-header">Coordinate 7x14</h2>
-        <h2 id="coord-7-15" class="coordinate-header">Coordinate 7x15</h2>
+  <script>
+    const gridContainer = document.querySelector('.grid-container');
+    const gridSize = 15;
 
-        <h2 id="coord-8-1" class="coordinate-header">Coordinate 8x1</h2>
-        <h2 id="coord-8-2" class="coordinate-header">Coordinate 8x2</h2>
-        <h2 id="coord-8-3" class="coordinate-header">Coordinate 8x3</h2>
-        <h2 id="coord-8-4" class="coordinate-header">Coordinate 8x4</h2>
-        <h2 id="coord-8-5" class="coordinate-header">Coordinate 8x5</h2>
-        <h2 id="coord-8-6" class="coordinate-header">Coordinate 8x6</h2>
-        <h2 id="coord-8-7" class="coordinate-header">Coordinate 8x7</h2>
-        <h2 id="coord-8-8" class="coordinate-header">Coordinate 8x8</h2>
-        <p>Horns</p>
-        <h2 id="coord-8-9" class="coordinate-header">Coordinate 8x9</h2>
-        <p>Horns</p>
-        <h2 id="coord-8-10" class="coordinate-header">Coordinate 8x10</h2>
-        <h2 id="coord-8-11" class="coordinate-header">Coordinate 8x11</h2>
-        <h2 id="coord-8-12" class="coordinate-header">Coordinate 8x12</h2>
-        <p>Save</p>
-        <h2 id="coord-8-13" class="coordinate-header">Coordinate 8x13</h2>
-        <p>Temple 1: Axe, Hammer man</p>
-        <h2 id="coord-8-14" class="coordinate-header">Coordinate 8x14</h2>
-        <h2 id="coord-8-15" class="coordinate-header">Coordinate 8x15</h2>
+    // Generate the grid
+    for (let row = 1; row <= gridSize; row++) {
+      for (let col = 1; col <= gridSize; col++) {
+        const coordinate = `${row}x${col}`;
+        const anchorId = `coord-${row}-${col}`;
 
-        <h2 id="coord-9-1" class="coordinate-header">Coordinate 9x1</h2>
-        <h2 id="coord-9-2" class="coordinate-header">Coordinate 9x2</h2>
-        <h2 id="coord-9-3" class="coordinate-header">Coordinate 9x3</h2>
-        <h2 id="coord-9-4" class="coordinate-header">Coordinate 9x4</h2>
-        <h2 id="coord-9-5" class="coordinate-header">Coordinate 9x5</h2>
-        <h2 id="coord-9-6" class="coordinate-header">Coordinate 9x6</h2>
-        <h2 id="coord-9-7" class="coordinate-header">Coordinate 9x7</h2>
-        <h2 id="coord-9-8" class="coordinate-header">Coordinate 9x8</h2>
-        <h2 id="coord-9-9" class="coordinate-header">Coordinate 9x9</h2>
-        <p>Hint: Walk along the river in the forest.</p>
-        <h2 id="coord-9-10" class="coordinate-header">Coordinate 9x10</h2>
-        <h2 id="coord-9-11" class="coordinate-header">Coordinate 9x11</h2>
-        <p>Town: Saylun<br/>Grave town</p>
-        <p>I saw a Dwarf. It was in the south - near Lake Whale</p>
-        <p>Inn: free</p>
-        <p>Shop:<br/>
-            Key: 60h<br/>
-            Magic Feather: 60h<br/>
-            Magic Oil: 130h
-        </p>
-        <h2 id="coord-9-12" class="coordinate-header">Coordinate 9x12</h2>
-        <h2 id="coord-9-13" class="coordinate-header">Coordinate 9x13</h2>
-        <p>Heart</p>
-        <h2 id="coord-9-14" class="coordinate-header">Coordinate 9x14</h2>
-        <h2 id="coord-9-15" class="coordinate-header">Coordinate 9x15</h2>
+        // Create grid item
+        const gridItem = document.createElement('div');
+        gridItem.className = 'grid-item';
 
-        <h2 id="coord-10-1" class="coordinate-header">Coordinate 10x1</h2>
-        <h2 id="coord-10-2" class="coordinate-header">Coordinate 10x2</h2>
-        <h2 id="coord-10-3" class="coordinate-header">Coordinate 10x3</h2>
-        <h2 id="coord-10-4" class="coordinate-header">Coordinate 10x4</h2>
-        <h2 id="coord-10-5" class="coordinate-header">Coordinate 10x5</h2>
-        <h2 id="coord-10-6" class="coordinate-header">Coordinate 10x6</h2>
-        <h2 id="coord-10-7" class="coordinate-header">Coordinate 10x7</h2>
-        <h2 id="coord-10-8" class="coordinate-header">Coordinate 10x8</h2>
-        <h2 id="coord-10-9" class="coordinate-header">Coordinate 10x9</h2>
-        <p>Save</p>
-        <h2 id="coord-10-10" class="coordinate-header">Coordinate 10x10</h2>
-        <p>Temple 2: Torch, Dragon</p>
-        <h2 id="coord-10-11" class="coordinate-header">Coordinate 10x11</h2>
-        <p>Shop:<br/>
-            Key: 40h<br/>
-            Magic Feather: 40h<br/>
-            Magic Oil: 70h
-        </p>
-        <h2 id="coord-10-12" class="coordinate-header">Coordinate 10x12</h2>
-        <h2 id="coord-10-13" class="coordinate-header">Coordinate 10x13</h2>
-        <h2 id="coord-10-14" class="coordinate-header">Coordinate 10x14</h2>
-        <h2 id="coord-10-15" class="coordinate-header">Coordinate 10x15</h2>
+        // Create image
+        const img = document.createElement('img');
+        img.src = `imgs/${row}_${col}.png`;
+        img.loading = 'lazy';
 
-        <h2 id="coord-11-1" class="coordinate-header">Coordinate 11x1</h2>
-        <h2 id="coord-11-2" class="coordinate-header">Coordinate 11x2</h2>
-        <h2 id="coord-11-3" class="coordinate-header">Coordinate 11x3</h2>
-        <h2 id="coord-11-4" class="coordinate-header">Coordinate 11x4</h2>
-        <h2 id="coord-11-5" class="coordinate-header">Coordinate 11x5</h2>
-        <h2 id="coord-11-6" class="coordinate-header">Coordinate 11x6</h2>
-        <h2 id="coord-11-7" class="coordinate-header">Coordinate 11x7</h2>
-        <h2 id="coord-11-8" class="coordinate-header">Coordinate 11x8</h2>
-        <h2 id="coord-11-9" class="coordinate-header">Coordinate 11x9</h2>
-        <h2 id="coord-11-10" class="coordinate-header">Coordinate 11x10</h2>
-        <h2 id="coord-11-11" class="coordinate-header">Coordinate 11x11</h2>
-        <p><s>Horns</s></p>
-        <h2 id="coord-11-12" class="coordinate-header">Coordinate 11x12</h2>
-        <h2 id="coord-11-13" class="coordinate-header">Coordinate 11x13</h2>
-        <h2 id="coord-11-14" class="coordinate-header">Coordinate 11x14</h2>
-        <h2 id="coord-11-15" class="coordinate-header">Coordinate 11x15</h2>
+        // Create coordinate link
+        const link = document.createElement('a');
+        link.href = `#${anchorId}`;
+        link.className = 'coordinate-link';
+        link.textContent = coordinate;
 
-        <h2 id="coord-12-1" class="coordinate-header">Coordinate 12x1</h2>
-        <h2 id="coord-12-2" class="coordinate-header">Coordinate 12x2</h2>
-        <h2 id="coord-12-3" class="coordinate-header">Coordinate 12x3</h2>
-        <h2 id="coord-12-4" class="coordinate-header">Coordinate 12x4</h2>
-        <h2 id="coord-12-5" class="coordinate-header">Coordinate 12x5</h2>
-        <h2 id="coord-12-6" class="coordinate-header">Coordinate 12x6</h2>
-        <h2 id="coord-12-7" class="coordinate-header">Coordinate 12x7</h2>
-        <h2 id="coord-12-8" class="coordinate-header">Coordinate 12x8</h2>
-        <h2 id="coord-12-9" class="coordinate-header">Coordinate 12x9</h2>
-        <h2 id="coord-12-10" class="coordinate-header">Coordinate 12x10</h2>
-        <h2 id="coord-12-11" class="coordinate-header">Coordinate 12x11</h2>
-        <h2 id="coord-12-12" class="coordinate-header">Coordinate 12x12</h2>
-        <h2 id="coord-12-13" class="coordinate-header">Coordinate 12x13</h2>
-        <p>Shop:<br/>
-            Knight's Shield: 250h<br/>
-            Meat: 30h<br/>
-            Magic Oil: 110h
-        </p>
-        <h2 id="coord-12-14" class="coordinate-header">Coordinate 12x14</h2>
-        <h2 id="coord-12-15" class="coordinate-header">Coordinate 12x15</h2>
+        gridItem.appendChild(img);
+        gridItem.appendChild(link);
+        gridContainer.appendChild(gridItem);
+      }
+    }
 
-        <h2 id="coord-13-1" class="coordinate-header">Coordinate 13x1</h2>
-        <h2 id="coord-13-2" class="coordinate-header">Coordinate 13x2</h2>
-        <h2 id="coord-13-3" class="coordinate-header">Coordinate 13x3</h2>
-        <h2 id="coord-13-4" class="coordinate-header">Coordinate 13x4</h2>
-        <h2 id="coord-13-5" class="coordinate-header">Coordinate 13x5</h2>
-        <h2 id="coord-13-6" class="coordinate-header">Coordinate 13x6</h2>
-        <h2 id="coord-13-7" class="coordinate-header">Coordinate 13x7</h2>
-        <h2 id="coord-13-8" class="coordinate-header">Coordinate 13x8</h2>
-        <h2 id="coord-13-9" class="coordinate-header">Coordinate 13x9</h2>
-        <h2 id="coord-13-10" class="coordinate-header">Coordinate 13x10</h2>
-        <h2 id="coord-13-11" class="coordinate-header">Coordinate 13x11</h2>
-        <h2 id="coord-13-12" class="coordinate-header">Coordinate 13x12</h2>
-        <h2 id="coord-13-13" class="coordinate-header">Coordinate 13x13</h2>
-        <h2 id="coord-13-14" class="coordinate-header">Coordinate 13x14</h2>
-        <h2 id="coord-13-15" class="coordinate-header">Coordinate 13x15</h2>
+    // Create headers and notes containers for all coordinates
+    (function ensureCoordinateHeaders() {
+      const headersContainer = document.getElementById('coordinateHeaders');
+      for (let row = 1; row <= gridSize; row++) {
+        for (let col = 1; col <= gridSize; col++) {
+          const anchorId = `coord-${row}-${col}`;
+          if (!document.getElementById(anchorId)) {
+            const h2 = document.createElement('h2');
+            h2.id = anchorId;
+            h2.className = 'coordinate-header';
+            h2.textContent = `Coordinate ${row}x${col}`;
+            headersContainer.appendChild(h2);
+          }
 
-        <h2 id="coord-14-1" class="coordinate-header">Coordinate 14x1</h2>
-        <h2 id="coord-14-2" class="coordinate-header">Coordinate 14x2</h2>
-        <h2 id="coord-14-3" class="coordinate-header">Coordinate 14x3</h2>
-        <h2 id="coord-14-4" class="coordinate-header">Coordinate 14x4</h2>
-        <h2 id="coord-14-5" class="coordinate-header">Coordinate 14x5</h2>
-        <h2 id="coord-14-6" class="coordinate-header">Coordinate 14x6</h2>
-        <h2 id="coord-14-7" class="coordinate-header">Coordinate 14x7</h2>
-        <h2 id="coord-14-8" class="coordinate-header">Coordinate 14x8</h2>
-        <h2 id="coord-14-9" class="coordinate-header">Coordinate 14x9</h2>
-        <h2 id="coord-14-10" class="coordinate-header">Coordinate 14x10</h2>
-        <h2 id="coord-14-11" class="coordinate-header">Coordinate 14x11</h2>
-        <h2 id="coord-14-12" class="coordinate-header">Coordinate 14x12</h2>
-        <h2 id="coord-14-13" class="coordinate-header">Coordinate 14x13</h2>
-        <h2 id="coord-14-14" class="coordinate-header">Coordinate 14x14</h2>
-        <h2 id="coord-14-15" class="coordinate-header">Coordinate 14x15</h2>
-
-        <h2 id="coord-15-1" class="coordinate-header">Coordinate 15x1</h2>
-        <h2 id="coord-15-2" class="coordinate-header">Coordinate 15x2</h2>
-        <h2 id="coord-15-3" class="coordinate-header">Coordinate 15x3</h2>
-        <h2 id="coord-15-4" class="coordinate-header">Coordinate 15x4</h2>
-        <h2 id="coord-15-5" class="coordinate-header">Coordinate 15x5</h2>
-        <h2 id="coord-15-6" class="coordinate-header">Coordinate 15x6</h2>
-        <h2 id="coord-15-7" class="coordinate-header">Coordinate 15x7</h2>
-        <h2 id="coord-15-8" class="coordinate-header">Coordinate 15x8</h2>
-        <h2 id="coord-15-9" class="coordinate-header">Coordinate 15x9</h2>
-        <h2 id="coord-15-10" class="coordinate-header">Coordinate 15x10</h2>
-        <h2 id="coord-15-11" class="coordinate-header">Coordinate 15x11</h2>
-        <h2 id="coord-15-12" class="coordinate-header">Coordinate 15x12</h2>
-        <h2 id="coord-15-13" class="coordinate-header">Coordinate 15x13</h2>
-        <h2 id="coord-15-14" class="coordinate-header">Coordinate 15x14</h2>
-        <h2 id="coord-15-15" class="coordinate-header">Coordinate 15x15</h2>
-    </div>
-
-    <script>
-        const gridContainer = document.querySelector('.grid-container');
-        const gridSize = 15;
-        
-        // Generate the grid
-        for (let row = 1; row <= gridSize; row++) {
-            for (let col = 1; col <= gridSize; col++) {
-                const coordinate = `${row}x${col}`;
-                const anchorId = `coord-${row}-${col}`;
-                
-                // Create grid item
-                const gridItem = document.createElement('div');
-                gridItem.className = 'grid-item';
-                
-                // Create image
-                const img = document.createElement('img');
-                img.src = `imgs/${row}_${col}.png`;
-                img.alt = `Image at position ${coordinate}`;
-                img.loading = 'lazy';
-                
-                // Create coordinate link
-                const link = document.createElement('a');
-                link.href = `#${anchorId}`;
-                link.className = 'coordinate-link';
-                link.textContent = coordinate;
-                
-                gridItem.appendChild(img);
-                gridItem.appendChild(link);
-                gridContainer.appendChild(gridItem);
-            }
+          const notesId = `notes-${row}-${col}`;
+          if (!document.getElementById(notesId)) {
+            const notesDiv = document.createElement('div');
+            notesDiv.id = notesId;
+            notesDiv.className = 'coordinate-notes';
+            headersContainer.appendChild(notesDiv);
+          }
         }
-    </script>
+      }
+    })();
+
+    // Load notes only from `window.COORD_NOTES` (provided by notes.js)
+    (function loadAllCoordNotes() {
+      const data = window.COORD_NOTES;
+      if (!data || typeof data !== 'object') {
+        console.warn('No window.COORD_NOTES found; skipping notes population.');
+        return;
+      }
+
+      Object.entries(data).forEach(([key, notes]) => {
+        if (!notes) return;
+        const m = String(key).match(/^(\d+)x(\d+)$/);
+        if (!m) return;
+        const row = m[1];
+        const col = m[2];
+        const containerId = `notes-${row}-${col}`;
+        let container = document.getElementById(containerId);
+        if (!container) {
+          const headersContainer = document.getElementById('coordinateHeaders');
+          const h2 = document.createElement('h2');
+          h2.id = `coord-${row}-${col}`;
+          h2.className = 'coordinate-header';
+          h2.textContent = `Coordinate ${row}x${col}`;
+          headersContainer.appendChild(h2);
+
+          container = document.createElement('div');
+          container.id = containerId;
+          container.className = 'coordinate-notes';
+          headersContainer.appendChild(container);
+        }
+
+        // clear existing
+        container.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+
+        const p = document.createElement('p');
+        p.style.whiteSpace = 'pre-wrap';
+        p.textContent = String(notes);
+        fragment.appendChild(p);
+
+        container.appendChild(fragment);
+      });
+    })();
+  </script>
 </body>
+
 </html>
