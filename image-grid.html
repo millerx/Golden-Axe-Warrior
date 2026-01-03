@@ -19,6 +19,13 @@
       padding-bottom: 4px;
     }
 
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
     .grid-container {
       display: grid;
       grid-template-columns: repeat(15, 1fr);
@@ -69,11 +76,15 @@
       padding-top: 10px;
       font-weight: bold;
     }
+
+    .coordinate-notes p {
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 
 <body>
-  <h1 style="font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:1.5rem">Golden Axe Warrior</h1>
+  <h1 class="page-title">Golden Axe Warrior</h1>
 
   <div class="grid-container">
     <!-- Grid will be populated by JavaScript -->
@@ -116,9 +127,11 @@
       }
     }
 
-    // Create headers and notes containers for all coordinates
-    (function ensureCoordinateHeaders() {
+    // Initialize coordinate headers and populate notes from `window.COORD_NOTES`
+    (function initCoordinateHeadersAndNotes() {
       const headersContainer = document.getElementById('coordinateHeaders');
+
+      // Create headers and empty notes containers for all coordinates
       for (let row = 1; row <= gridSize; row++) {
         for (let col = 1; col <= gridSize; col++) {
           const anchorId = `coord-${row}-${col}`;
@@ -139,10 +152,8 @@
           }
         }
       }
-    })();
 
-    // Load notes only from `window.COORD_NOTES` (provided by notes.js)
-    (function loadAllCoordNotes() {
+      // Populate notes from provided data (if any)
       const data = window.COORD_NOTES;
       if (!data || typeof data !== 'object') {
         console.warn('No window.COORD_NOTES found; skipping notes population.');
@@ -151,35 +162,23 @@
 
       Object.entries(data).forEach(([key, notes]) => {
         if (!notes) return;
-        const m = String(key).match(/^(\d+)x(\d+)$/);
-        if (!m) return;
-        const row = m[1];
-        const col = m[2];
-        const containerId = `notes-${row}-${col}`;
+        const coords = String(key).match(/^(\d+)x(\d+)$/);
+        if (!coords) return;
+        const containerId = `notes-${coords[1]}-${coords[2]}`;
         let container = document.getElementById(containerId);
         if (!container) {
-          const headersContainer = document.getElementById('coordinateHeaders');
-          const h3 = document.createElement('h3');
-          h3.id = `coord-${row}-${col}`;
-          h3.className = 'coordinate-header';
-          h3.textContent = `Coordinate ${row}x${col}`;
-          headersContainer.appendChild(h3);
-
           container = document.createElement('div');
           container.id = containerId;
           container.className = 'coordinate-notes';
           headersContainer.appendChild(container);
         }
 
-        // clear existing
+        // clear existing and append note paragraph
         container.innerHTML = '';
         const fragment = document.createDocumentFragment();
-
         const p = document.createElement('p');
-        p.style.whiteSpace = 'pre-wrap';
         p.textContent = String(notes);
         fragment.appendChild(p);
-
         container.appendChild(fragment);
       });
     })();
