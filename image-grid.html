@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golden Axe Warrior</title>
   <meta name="description" content="Grid of 15x15 images with coordinate links">
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       color: #fff;
+      background-color: #000;
+      padding: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     p {
@@ -70,8 +72,8 @@
   </style>
 </head>
 
-<body class="bg-black p-4">
-  <h1 class="text-2xl font-bold text-center mb-6">Golden Axe Warrior</h1>
+<body>
+  <h1 style="font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:1.5rem">Golden Axe Warrior</h1>
 
   <div class="grid-container">
     <!-- Grid will be populated by JavaScript -->
@@ -121,11 +123,11 @@
         for (let col = 1; col <= gridSize; col++) {
           const anchorId = `coord-${row}-${col}`;
           if (!document.getElementById(anchorId)) {
-            const h2 = document.createElement('h2');
-            h2.id = anchorId;
-            h2.className = 'coordinate-header';
-            h2.textContent = `Coordinate ${row}x${col}`;
-            headersContainer.appendChild(h2);
+            const h3 = document.createElement('h3');
+            h3.id = anchorId;
+            h3.className = 'coordinate-header';
+            h3.textContent = `Coordinate ${row}x${col}`;
+            headersContainer.appendChild(h3);
           }
 
           const notesId = `notes-${row}-${col}`;
@@ -157,11 +159,11 @@
         let container = document.getElementById(containerId);
         if (!container) {
           const headersContainer = document.getElementById('coordinateHeaders');
-          const h2 = document.createElement('h2');
-          h2.id = `coord-${row}-${col}`;
-          h2.className = 'coordinate-header';
-          h2.textContent = `Coordinate ${row}x${col}`;
-          headersContainer.appendChild(h2);
+          const h3 = document.createElement('h3');
+          h3.id = `coord-${row}-${col}`;
+          h3.className = 'coordinate-header';
+          h3.textContent = `Coordinate ${row}x${col}`;
+          headersContainer.appendChild(h3);
 
           container = document.createElement('div');
           container.id = containerId;
