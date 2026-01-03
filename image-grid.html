@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golden Axe Warrior</title>
-  <meta name="description" content="Grid of 15x15 images with coordinate links">
+  <meta name="description" content="Grid of 15x15 images with coordinate badges">
   <style>
     body {
       color: #fff;
@@ -46,21 +46,50 @@
       height: 80px;
     }
 
-    .coordinate-link {
+    .coordinate-badge {
       position: absolute;
       top: 2px;
       left: 2px;
       background-color: rgba(255, 255, 255, 0.7);
-      padding: 2px 4px;
+      padding: 2px 6px;
       font-size: 10px;
       font-weight: bold;
       color: #333;
       text-decoration: none;
       border-radius: 2px;
+      cursor: default;
+      display: inline-block;
     }
 
-    .coordinate-link:hover {
+    .coordinate-badge:hover {
       background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .coordinate-badge:focus {
+      outline: 2px solid rgba(255,255,255,0.6);
+    }
+
+    .coordinate-badge .tooltip {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      margin-top: 6px;
+      background-color: rgba(0, 0, 0, 0.95);
+      color: #fff;
+      padding: 6px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      min-width: 30ch;
+      max-width: 80ch;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      z-index: 20;
+    }
+
+    .coordinate-badge:hover .tooltip,
+    .coordinate-badge:focus .tooltip {
+      display: block;
     }
 
     .coordinate-headers {
@@ -94,11 +123,17 @@
     <!-- Headers and notes will be generated dynamically -->
   </div>
 
+  <!-- Load notes JSON structure from this script into window.COORD_NOTES -->
   <script src="notes.js"></script>
 
   <script>
     const gridContainer = document.querySelector('.grid-container');
     const gridSize = 15;
+
+    if (!window.COORD_NOTES) {
+      console.warn('No window.COORD_NOTES found.');
+    }
+    const notesData = window.COORD_NOTES || {};
 
     // Generate the grid
     for (let row = 1; row <= gridSize; row++) {
@@ -115,73 +150,25 @@
         img.src = `imgs/${row}_${col}.png`;
         img.loading = 'lazy';
 
-        // Create coordinate link
-        const link = document.createElement('a');
-        link.href = `#${anchorId}`;
-        link.className = 'coordinate-link';
-        link.textContent = coordinate;
+        // Create coordinate badge as a non-navigating element with tooltip
+        const badge = document.createElement('span');
+        badge.className = 'coordinate-badge';
+        badge.tabIndex = 0;
+        badge.textContent = coordinate;
+
+        const noteText = notesData[coordinate];
+        if (noteText) {
+          const tooltip = document.createElement('div');
+          tooltip.className = 'tooltip';
+          tooltip.textContent = `${coordinate}: ${noteText}`;
+          badge.appendChild(tooltip);
+        }
 
         gridItem.appendChild(img);
-        gridItem.appendChild(link);
+        gridItem.appendChild(badge);
         gridContainer.appendChild(gridItem);
       }
     }
-
-    // Initialize coordinate headers and populate notes from `window.COORD_NOTES`
-    (function initCoordinateHeadersAndNotes() {
-      const headersContainer = document.getElementById('coordinateHeaders');
-
-      // Create headers and empty notes containers for all coordinates
-      for (let row = 1; row <= gridSize; row++) {
-        for (let col = 1; col <= gridSize; col++) {
-          const anchorId = `coord-${row}-${col}`;
-          if (!document.getElementById(anchorId)) {
-            const h3 = document.createElement('h3');
-            h3.id = anchorId;
-            h3.className = 'coordinate-header';
-            h3.textContent = `Coordinate ${row}x${col}`;
-            headersContainer.appendChild(h3);
-          }
-
-          const notesId = `notes-${row}-${col}`;
-          if (!document.getElementById(notesId)) {
-            const notesDiv = document.createElement('div');
-            notesDiv.id = notesId;
-            notesDiv.className = 'coordinate-notes';
-            headersContainer.appendChild(notesDiv);
-          }
-        }
-      }
-
-      // Populate notes from provided data (if any)
-      const data = window.COORD_NOTES;
-      if (!data || typeof data !== 'object') {
-        console.warn('No window.COORD_NOTES found; skipping notes population.');
-        return;
-      }
-
-      Object.entries(data).forEach(([key, notes]) => {
-        if (!notes) return;
-        const coords = String(key).match(/^(\d+)x(\d+)$/);
-        if (!coords) return;
-        const containerId = `notes-${coords[1]}-${coords[2]}`;
-        let container = document.getElementById(containerId);
-        if (!container) {
-          container = document.createElement('div');
-          container.id = containerId;
-          container.className = 'coordinate-notes';
-          headersContainer.appendChild(container);
-        }
-
-        // clear existing and append note paragraph
-        container.innerHTML = '';
-        const fragment = document.createDocumentFragment();
-        const p = document.createElement('p');
-        p.textContent = String(notes);
-        fragment.appendChild(p);
-        container.appendChild(fragment);
-      });
-    })();
   </script>
 </body>
 
