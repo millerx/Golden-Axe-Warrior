@@ -10,7 +10,8 @@ Interactive map for Golden Axe Warrior screenshots and per-screen notes.
 
 ## Adding a screen
 
-1. Take a screenshot in RetroArch.
+0. Set Windowed Scale to 1x, 4x or any other even scaling value.
+1. Take a screenshot in RetroArch. Press F8.
 2. Run the helper script to add the image:
 
 ```sh
