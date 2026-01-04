@@ -1,7 +1,21 @@
 window.COORD_NOTES = {
-  "4x5": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.\n\
-    TODO: Use Magic Rope here",
-  "4x7": "TODO: Break rock",
+  "1x4": "Temple 4: Canoe, Mage",
+  "1x5": "Hint: One of the buildings near here used to be the Dwarf's palace.",
+  "1x7": "Gamble",
+  "1x8": "Inn: free",
+  "1x10": "Thief: -40 horns",
+  "2x5": "Save",
+  "2x9": "Hint: The Dwarf's village is in the west.",
+  "3x4": "TODO: Sus",
+  "3x6": "Magic Pot",
+  "3x7": "Hint: Try breaking the graves, too.",
+  "3x8": "Shop:\n\
+    Golden Apple: 40h",
+  "3x10": "Tunnel: 10h to 8x11",
+  "3x11": "TODO: Rock not breakable by magic",
+  "4x4": "Thief: -30 horns",
+  "4x5": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.",
+  "4x7": "Horns",
   "5x6": "Save",
   "5x7": "Shop:\n\
     Meat: 20h\n\
@@ -15,20 +29,22 @@ window.COORD_NOTES = {
       Golden Apple: 100h\n\
       Key: 60h\n\
       Magic Oil: 160h",
+  "6x4": "Horns",
   "6x6": "Temple 3: Magic Rope, Hammer and Shield man",
-  "6x8": "TODO: Break rock?",
+  "6x8": "Hint: To get out of the desert go southeast, north, northeast, south and then north\nTODO",
   "7x5": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
     Magic Oil: 70h",
   "7x6": "Shop:\n\
     Golden Apple: 40h",
+  "7x9": "Hint: When you think you are stronger, go back to the cave where you learned magic - you'll learn a more effective magic.\nTODO",
   "7x10": "Hint: (Trivial)",
-  "7x11": "Mysterious desert",
+  "7x11": "Mysterious desert\nSE, N, NE, S, N",
   "8x4": "Horns",
   "8x5": "Thief: -40 horns",
   "8x10": "Hint: The Earth Magic breaks most rocks",
-  "8x11": "TODO: Rock that requires Earth Magic",
+  "8x11": "Tunnel: 10h to 3x10",
   "9x5": "Hint: I heard there's a knight who can use the Earth Magic.",
   "9x6": "TODO: You came here to steal my things, didn't you?",
   "9x8": "Town: Milver\n\
@@ -40,6 +56,9 @@ window.COORD_NOTES = {
       Magic Oil: 130h",
   "9x9": "Start here!",
   "10x5": "Horns",
+  "10x6": "Thief: -10 horns",
+  "10x7": "Battler:\n\
+    Earth Magic Scroll: 50h",
   "10x9": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
