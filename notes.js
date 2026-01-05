@@ -15,11 +15,19 @@ window.COORD_NOTES = {
     Golden Apple: 40h",
   "3x7": "Tunnel: 10h to 8x11",
   "3x8": "TODO: Rock not breakable by magic",
+  "3x15": "Hint: (Trivial)",
   "4x1": "Thief: -30 horns",
   "4x2": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.",
   "4x4": "Horns",
   "4x10": "Temple 5: Speed Shoes, Skull",
   "4x11": "Hint: (Trivial)",
+  "4x13": "Town: Sid\n\
+    TODO: Destroy monster in the South before opening chest\n\
+    Hint: Take the Dragon Shield before heading North.",
+  "4x15": "Shop:\n\
+    Golden Apple: 100h\n\
+    Magic Feather: 60h\n\
+    Magic Oil: 130h",
   "5x3": "Save",
   "5x4": "Shop:\n\
     Meat: 20h\n\
@@ -41,9 +49,11 @@ window.COORD_NOTES = {
       Magic Feather: 60h\n\
       Magic Oil: 130h",
   "5x12": "Thief: -20 horns",
+  "5x13": "Gamble",
   "6x1": "Horns",
   "6x3": "Temple 3: Magic Rope, Hammer and Shield man",
   "6x5": "Hint: To get out of the desert go southeast, north, northeast, south and then north",
+  "6x14": "Tunnel: 10h to 9x7",
   "7x2": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
@@ -57,11 +67,19 @@ window.COORD_NOTES = {
     2 Pots: 20h\n\
     4 Pots: 30h\n\
     8 Pots: 50h",
+  "7x14": "Horns",
   "8x1": "Horns",
   "8x2": "Thief: -40 horns",
   "8x3": "Hint: (Trivial)",
   "8x7": "Hint: The Earth Magic breaks most rocks",
   "8x8": "Tunnel: 10h to 3x10",
+  "8x12": "Temple 6: Ice Bell, Red Dragon",
+  "8x13": "Hint: (Trivial)",
+  "8x14": "Shop:\n\
+    Meat: 20h\n\
+    Magic Feather: 30h\n\
+    Magic Oil: 90h",
+  "8x15": "Thief: -30 horns",
   "9x2": "Hint: I heard there's a knight who can use the Earth Magic.",
   "9x3": "TODO: You came here to steal my things, didn't you?",
   "9x5": "Town: Milver\n\
@@ -72,6 +90,9 @@ window.COORD_NOTES = {
       Magic Feather: 60h\n\
       Magic Oil: 130h",
   "9x6": "Start here!",
+  "9x7": "Tunnel: 10h to 6x14",
+  "9x13": "Save",
+  "9x15": "Horns",
   "10x2": "Horns",
   "10x3": "Thief: -10 horns",
   "10x4": "Battler:\n\
@@ -81,12 +102,16 @@ window.COORD_NOTES = {
     Magic Feather: 40h\n\
     Magic Oil: 70h",
   "10x8": "Gamble",
+  "10x12": "Hint: (Trivial)",
+  "10x13": "Horns",
+  "10x14": "Inn: free",
   "11x2": "TODO: Cannot reach island",
   "11x4": "Hint: In Kari-Kari, a town in the nothern desert, you'll find a magic device that will help you climb rocks.",
   "11x5": "Horns",
   "11x6": "Horns",
   "11x9": "Save",
   "11x10": "Temple 1: Axe, Hammer man",
+  "11x14": "Horns",
   "12x1": "TODO: Cannot access cave",
   "12x4": "Magic Shop:\n\
     2 Pots: 20h\n\
