@@ -4,8 +4,10 @@ window.COORD_NOTES = {
   "1x7": "Gamble",
   "1x8": "Inn: free",
   "1x10": "Thief: -40 horns",
+  "1x12": "Heart",
   "2x5": "Save",
   "2x9": "Hint: The Dwarf's village is in the west.",
+  "2x11": "Plate Mail",
   "3x4": "TODO: Sus",
   "3x6": "Magic Pot",
   "3x7": "Hint: Try breaking the graves, too.",
@@ -16,6 +18,8 @@ window.COORD_NOTES = {
   "4x4": "Thief: -30 horns",
   "4x5": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.",
   "4x7": "Horns",
+  "4x13": "Temple 5: Speed Shoes, Skull",
+  "4x14": "Hint: (Trivial)",
   "5x6": "Save",
   "5x7": "Shop:\n\
     Meat: 20h\n\
@@ -29,9 +33,17 @@ window.COORD_NOTES = {
       Golden Apple: 100h\n\
       Key: 60h\n\
       Magic Oil: 160h",
+  "5x11": "Town: Dagorald\n\
+    Save\n\
+    Inn: 20h\n\
+    Shop:\n\
+      Golden Apple: 100h\n\
+      Magic Feather: 60h\n\
+      Magic Oil: 130h",
+  "5x15": "Thief: -20 horns",
   "6x4": "Horns",
   "6x6": "Temple 3: Magic Rope, Hammer and Shield man",
-  "6x8": "Hint: To get out of the desert go southeast, north, northeast, south and then north\nTODO",
+  "6x8": "Hint: To get out of the desert go southeast, north, northeast, south and then north",
   "7x5": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
@@ -41,8 +53,13 @@ window.COORD_NOTES = {
   "7x9": "Hint: When you think you are stronger, go back to the cave where you learned magic - you'll learn a more effective magic.\nTODO",
   "7x10": "Hint: (Trivial)",
   "7x11": "Mysterious desert\nSE, N, NE, S, N",
+  "7x15": "Magic Shop:\n\
+    2 Pots: 20h\n\
+    4 Pots: 30h\n\
+    8 Pots: 50h",
   "8x4": "Horns",
   "8x5": "Thief: -40 horns",
+  "8x6": "Hint: (Trivial)",
   "8x10": "Hint: The Earth Magic breaks most rocks",
   "8x11": "Tunnel: 10h to 3x10",
   "9x5": "Hint: I heard there's a knight who can use the Earth Magic.",
@@ -93,6 +110,9 @@ window.COORD_NOTES = {
     Magic Oil: 70h",
   "14x6": "Horns",
   "14x8": "Thief: -20 horns",
+  "14x9": "Magic Pot",
+  "14x10": "Gillian:\n\
+    Thunder Magic Scroll: Golden Apple",
   "14x11": "~Horns~",
   "15x4": "Town: Riksas' Golden Apples\n\
     Save\n\
