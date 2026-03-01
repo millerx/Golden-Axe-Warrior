@@ -15,7 +15,17 @@ Interactive map for Golden Axe Warrior screenshots and per-screen notes.
 2. Run the helper script to add the image:
 
 ```sh
+cd ~/Documents/RetroArch/screenshots/
 sh addimg.sh 11_12
 ```
 
 3. Add any notes to [notes.js](notes.js).
+
+## Dungeons
+
+Map your way through a dungeon with `dungeon_map.txt` as a template.
+I chose not commit dungeon maps.
+
+```sh
+cat dungeon_map.txt | pbcopy
+```

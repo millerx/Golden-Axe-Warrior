@@ -5,9 +5,20 @@ window.COORD_NOTES = {
   "1x5": "Inn: free",
   "1x7": "Thief: -40 horns",
   "1x9": "Heart",
+  "1x11": "Tunnel: 10h to 3x13",
+  "1x12": "Temple 7: Ship, Flames",
   "2x2": "Save",
   "2x6": "Hint: The Dwarf's village is in the west.",
   "2x8": "Plate Mail",
+  "2x13": "TODO: Sus",
+  "2x15": "Town: Erin\n\
+    Save\n\
+    Inn: 40h\n\
+    Shop:\n\
+      Golden Apple: 100h\n\
+      Key: 60h\n\
+      Magic Oil: 160h\n\
+    Hint: When you use the Ice Bell, you can tell which rocks are breakable",
   "3x1": "TODO: Sus",
   "3x3": "Magic Pot",
   "3x4": "Hint: Try breaking the graves, too.",
@@ -15,6 +26,7 @@ window.COORD_NOTES = {
     Golden Apple: 40h",
   "3x7": "Tunnel: 10h to 8x11",
   "3x8": "TODO: Rock not breakable by magic",
+  "3x13": "Tunnel: 10h to 1x11",
   "3x15": "Hint: (Trivial)",
   "4x1": "Thief: -30 horns",
   "4x2": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.",
