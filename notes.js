@@ -1,23 +1,23 @@
 window.COORD_NOTES = {
-  "1x1": "Temple 4: Canoe, Mage",
-  "1x2": "Hint: One of the buildings near here used to be the Dwarf's palace.",
-  "1x4": "Gamble",
-  "1x5": "Inn: free",
-  "1x7": "Thief: -40 horns",
-  "1x9": "Heart",
-  "1x11": "Tunnel: 10h to 3x13",
-  "1x12": "Temple 7: Ship, Flames",
-  "2x2": "Save",
-  "2x3": "Horns",
-  "2x4": "Magic Shop:\n\
+  "1,1": "Temple 4: Canoe, Mage",
+  "1,2": "Hint: One of the buildings near here used to be the Dwarf's palace.",
+  "1,4": "Gamble",
+  "1,5": "Inn: free",
+  "1,7": "Thief: -40 horns",
+  "1,9": "Heart",
+  "1,11": "Tunnel: 10h to 3x13",
+  "1,12": "Temple 7: Ship, Flames",
+  "2,2": "Save",
+  "2,3": "Horns",
+  "2,4": "Magic Shop:\n\
     2 Pots: 20h\n\
     4 Pots: 30h\n\
     8 Pots: 50h",
-  "2x6": "Hint: The Dwarf's village is in the west.",
-  "2x8": "Plate Mail",
-  "2x10": "Temple 8: Thieve's Key, Mage",
-  "2x13": "TODO: Sus. Strong trees",
-  "2x15": "Town: Erin\n\
+  "2,6": "Hint: The Dwarf's village is in the west.",
+  "2,8": "Plate Mail",
+  "2,10": "Temple 8: Thieve's Key, Mage",
+  "2,13": "TODO: Sus. Strong trees",
+  "2,15": "Town: Erin\n\
     Save\n\
     Inn: 40h\n\
     Shop:\n\
@@ -25,123 +25,123 @@ window.COORD_NOTES = {
       Key: 60h\n\
       Magic Oil: 160h\n\
     Hint: When you use the Ice Bell, you can tell which rocks are breakable",
-  "3x1": "Hint: Go to the third continent.\n\
+  "3,1": "Hint: Go to the third continent.\n\
   Look for the harbor.\n\
   Head south from the harbor and use the Ice Bell.",
-  "3x3": "Magic Pot",
-  "3x4": "Hint: Try breaking the graves, too.",
-  "3x5": "Shop:\n\
+  "3,3": "Magic Pot",
+  "3,4": "Hint: Try breaking the graves, too.",
+  "3,5": "Shop:\n\
     Golden Apple: 40h",
-  "3x7": "Tunnel: 10h to 8x11",
-  "3x13": "Tunnel: 10h to 1x11",
-  "3x15": "Hint: (Trivial)",
-  "4x1": "Thief: -30 horns",
-  "4x2": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.",
-  "4x4": "Horns",
-  "4x10": "Temple 5: Speed Shoes, Skull",
-  "4x11": "Hint: (Trivial)",
-  "4x13": "Town: Sid\n\
+  "3,7": "Tunnel: 10h to 8x11",
+  "3,13": "Tunnel: 10h to 1x11",
+  "3,15": "Hint: (Trivial)",
+  "4,1": "Thief: -30 horns",
+  "4,2": "Hint: When you get the Magic Rope, go to the left side of this cave toward the stone wall and push up.",
+  "4,4": "Horns",
+  "4,10": "Temple 5: Speed Shoes, Skull",
+  "4,11": "Hint: (Trivial)",
+  "4,13": "Town: Sid\n\
     Hint: Take the Dragon Shield before heading North.\n\
     After crystal: Dragon Shield",
-  "4x15": "Shop:\n\
+  "4,15": "Shop:\n\
     Golden Apple: 100h\n\
     Magic Feather: 60h\n\
     Magic Oil: 130h",
-  "5x1": "TODO: Glitched chest",
-  "5x3": "Save",
-  "5x4": "Shop:\n\
+  "5,1": "TODO: Glitched chest",
+  "5,3": "Save",
+  "5,4": "Shop:\n\
     Meat: 20h\n\
     Magic Feather: 30h\n\
     Magic Oil: 90h",
-  "5x5": "Horns",
-  "5x6": "Town: Kari-Kari\n\
+  "5,5": "Horns",
+  "5,6": "Town: Kari-Kari\n\
     Save\n\
     Inn: 20h\n\
     Shop:\n\
       Golden Apple: 100h\n\
       Key: 60h\n\
       Magic Oil: 160h",
-  "5x8": "Town: Dagorald\n\
+  "5,8": "Town: Dagorald\n\
     Save\n\
     Inn: 20h\n\
     Shop:\n\
       Golden Apple: 100h\n\
       Magic Feather: 60h\n\
       Magic Oil: 130h",
-  "5x12": "Thief: -20 horns",
-  "5x13": "Gamble",
-  "6x1": "Horns",
-  "6x3": "Temple 3: Magic Rope, Hammer and Shield man",
-  "6x5": "Hint: To get out of the desert go southeast, north, northeast, south and then north",
-  "6x11": "Flame Sword",
-  "6x14": "Tunnel: 10h to 9x7",
-  "7x2": "Shop:\n\
+  "5,12": "Thief: -20 horns",
+  "5,13": "Gamble",
+  "6,1": "Horns",
+  "6,3": "Temple 3: Magic Rope, Hammer and Shield man",
+  "6,5": "Hint: To get out of the desert go southeast, north, northeast, south and then north",
+  "6,11": "Flame Sword",
+  "6,14": "Tunnel: 10h to 9x7",
+  "7,2": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
     Magic Oil: 70h",
-  "7x3": "Shop:\n\
+  "7,3": "Shop:\n\
     Golden Apple: 40h",
-  "7x6": "Hint: When you think you are stronger, go back to the cave where you learned magic - you'll learn a more effective magic.",
-  "7x7": "Hint: (Trivial)",
-  "7x8": "Mysterious desert\nSE, N, NE, S, N",
-  "7x9": "TODO: Sus. Strong tree",
-  "7x12": "Magic Shop:\n\
+  "7,6": "Hint: When you think you are stronger, go back to the cave where you learned magic - you'll learn a more effective magic.",
+  "7,7": "Hint: (Trivial)",
+  "7,8": "Mysterious desert\nSE, N, NE, S, N",
+  "7,9": "TODO: Sus. Strong tree",
+  "7,12": "Magic Shop:\n\
     2 Pots: 20h\n\
     4 Pots: 30h\n\
     8 Pots: 50h",
-  "7x14": "Horns",
-  "8x1": "Horns",
-  "8x2": "Thief: -40 horns",
-  "8x3": "Hint: (Trivial)",
-  "8x7": "Hint: The Earth Magic breaks most rocks",
-  "8x8": "Tunnel: 10h to 3x10",
-  "8x12": "Temple 6: Ice Bell, Red Dragon",
-  "8x13": "Hint: (Trivial)",
-  "8x14": "Shop:\n\
+  "7,14": "Horns",
+  "8,1": "Horns",
+  "8,2": "Thief: -40 horns",
+  "8,3": "Hint: (Trivial)",
+  "8,7": "Hint: The Earth Magic breaks most rocks",
+  "8,8": "Tunnel: 10h to 3x10",
+  "8,12": "Temple 6: Ice Bell, Red Dragon",
+  "8,13": "Hint: (Trivial)",
+  "8,14": "Shop:\n\
     Meat: 20h\n\
     Magic Feather: 30h\n\
     Magic Oil: 90h",
-  "8x15": "Thief: -30 horns",
-  "9x2": "Hint: I heard there's a knight who can use the Earth Magic.",
-  "9x3": "Golden Apple",
-  "9x5": "Town: Milver\n\
+  "8,15": "Thief: -30 horns",
+  "9,2": "Hint: I heard there's a knight who can use the Earth Magic.",
+  "9,3": "Golden Apple",
+  "9,5": "Town: Milver\n\
     Save\n\
     Inn: free\n\
     Shop:\n\
       Key: 60h\n\
       Magic Feather: 60h\n\
       Magic Oil: 130h",
-  "9x6": "Start here!",
-  "9x7": "Tunnel: 10h to 6x14",
-  "9x13": "Save",
-  "9x15": "Horns",
-  "10x2": "Horns",
-  "10x3": "Thief: -10 horns",
-  "10x4": "Battler:\n\
+  "9,6": "Start here!",
+  "9,7": "Tunnel: 10h to 6x14",
+  "9,13": "Save",
+  "9,15": "Horns",
+  "10,2": "Horns",
+  "10,3": "Thief: -10 horns",
+  "10,4": "Battler:\n\
     Earth Magic Scroll: 50h",
-  "10x6": "Shop:\n\
+  "10,6": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
     Magic Oil: 70h",
-  "10x8": "Gamble",
-  "10x11": "TODO: Sus. Strong tree",
-  "10x12": "Hint: (Trivial)",
-  "10x13": "Horns",
-  "10x14": "Inn: free",
-  "11x2": "Dragon Mail",
-  "11x4": "Hint: In Kari-Kari, a town in the nothern desert, you'll find a magic device that will help you climb rocks.",
-  "11x5": "Horns",
-  "11x6": "Horns",
-  "11x9": "Save",
-  "11x10": "Temple 1: Axe, Hammer man",
-  "11x14": "Horns",
-  "12x1": "Magic Pot",
-  "12x4": "Magic Shop:\n\
+  "10,8": "Gamble",
+  "10,11": "TODO: Sus. Strong tree",
+  "10,12": "Hint: (Trivial)",
+  "10,13": "Horns",
+  "10,14": "Inn: free",
+  "11,2": "Dragon Mail",
+  "11,4": "Hint: In Kari-Kari, a town in the nothern desert, you'll find a magic device that will help you climb rocks.",
+  "11,5": "Horns",
+  "11,6": "Horns",
+  "11,9": "Save",
+  "11,10": "Temple 1: Axe, Hammer man",
+  "11,14": "Horns",
+  "12,1": "Magic Pot",
+  "12,4": "Magic Shop:\n\
     2 Pots: 20h\n\
     4 Pots: 30h\n\
     8 Pots: 50h",
-  "12x6": "Hint: Walk along the river in the forest.",
-  "12x8": "Town: Saylun\n\
+  "12,6": "Hint: Walk along the river in the forest.",
+  "12,8": "Town: Saylun\n\
     Save\n\
     Inn: free\n\
     Hint: I saw a Dwarf. It was in the south - near Lake Whale\n\
@@ -149,34 +149,34 @@ window.COORD_NOTES = {
       Key: 60h\n\
       Magic Feather: 60h\n\
       Magic Oil: 130h",
-  "12x10": "Heart",
-  "13x6": "Save",
-  "13x7": "Temple 2: Torch, Dragon",
-  "13x8": "Shop:\n\
+  "12,10": "Heart",
+  "13,6": "Save",
+  "13,7": "Temple 2: Torch, Dragon",
+  "13,8": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
     Magic Oil: 70h",
-  "14x3": "Horns",
-  "14x5": "Thief: -20 horns",
-  "14x6": "Magic Pot",
-  "14x7": "Gillian:\n\
+  "14,3": "Horns",
+  "14,5": "Thief: -20 horns",
+  "14,6": "Magic Pot",
+  "14,7": "Gillian:\n\
     Thunder Magic Scroll: Golden Apple",
-  "14x8": "~Horns~",
-  "14x10": "TODO: Sus. Strong tree",
-  "15x1": "Town: Riksas' Golden Apples\n\
+  "14,8": "~Horns~",
+  "14,10": "TODO: Sus. Strong tree",
+  "15,1": "Town: Riksas' Golden Apples\n\
     Save\n\
     Inn: 20h\n\
     Shop:\n\
       Golden Apple: 40h",
-  "15x2": "Thief: -30 horns",
-  "15x3": "Shop:\n\
+  "15,2": "Thief: -30 horns",
+  "15,3": "Shop:\n\
     Meat: 20h\n\
     Magic Feather: 30h\n\
     Magic Oil: 90h",
-  "15x5": "Horns",
-  "15x6": "Inn: free",
-  "15x7": "Thief: -10 horns",
-  "15x10": "Shop:\n\
+  "15,5": "Horns",
+  "15,6": "Inn: free",
+  "15,7": "Thief: -10 horns",
+  "15,10": "Shop:\n\
     Knight's Shield: 250h\n\
     Meat: 30h\n\
     Magic Oil: 110h"

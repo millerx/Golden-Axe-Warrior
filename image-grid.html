@@ -115,7 +115,7 @@
 
 <body>
   <h1 class="page-title">Golden Axe Warrior</h1>
-  <p>The game starts at screen 9x6</p>
+  <p>The game starts at screen 9,6</p>
 
   <div class="grid-container">
     <!-- Grid will be populated by JavaScript -->
@@ -140,7 +140,7 @@
     // Generate the grid
     for (let row = 1; row <= gridSize; row++) {
       for (let col = 1; col <= gridSize; col++) {
-        const coordinate = `${row}x${col}`;
+        const coordinate = `${row},${col}`;
         const anchorId = `coord-${row}-${col}`;
 
         // Create grid item
