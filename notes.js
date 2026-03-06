@@ -32,7 +32,7 @@ window.COORD_NOTES = {
   "3,4": "Hint: Try breaking the graves, too.",
   "3,5": "Shop:\n\
     Golden Apple: 40h",
-  "3,7": "Tunnel: 10h to 8x11",
+  "3,7": "Tunnel: 10h to 8x8",
   "3,13": "Tunnel: 10h to 1x11",
   "3,15": "Hint: (Trivial)",
   "4,1": "Thief: -30 horns",
@@ -94,7 +94,7 @@ window.COORD_NOTES = {
   "8,2": "Thief: -40 horns",
   "8,3": "Hint: (Trivial)",
   "8,7": "Hint: The Earth Magic breaks most rocks",
-  "8,8": "Tunnel: 10h to 3x10",
+  "8,8": "Tunnel: 10h to 3x7",
   "8,12": "Temple 6: Ice Bell, Red Dragon",
   "8,13": "Hint: (Trivial)",
   "8,14": "Shop:\n\
@@ -181,3 +181,9 @@ window.COORD_NOTES = {
     Meat: 30h\n\
     Magic Oil: 110h"
 };
+
+window.TUNNELS = {
+  "1,11": "3,13",
+  "3,7": "8,8",
+  "6,14": "9,7",
+}

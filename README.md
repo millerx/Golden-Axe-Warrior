@@ -19,7 +19,11 @@ cd ~/Documents/RetroArch/screenshots/
 sh addimg.sh 11_12
 ```
 
-3. Add any notes to [notes.js](notes.js).
+## Notes
+
+Add any notes to [notes.js](notes.js).
+
+The game has tunnels between certain screens. Add any tunnels found to the `TUNNELS` variable in [notes.js](notes.js).
 
 ## Dungeons
 

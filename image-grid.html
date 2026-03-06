@@ -28,17 +28,17 @@
 
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(15, 1fr);
+      grid-template-columns: repeat(15, 128px);
       gap: 0;
       width: fit-content;
       margin: 0 auto;
       padding-right: 6rem;
+      position: relative;
     }
 
     .grid-item {
-      width: 100%;
+      width: 128px;
       height: 80px;
-      aspect-ratio: 1;
       position: relative;
     }
 
@@ -110,12 +110,20 @@
     .coordinate-notes p {
       white-space: pre-wrap;
     }
+
+    .tunnel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
   <h1 class="page-title">Golden Axe Warrior</h1>
   <p>The game starts at screen 9,6</p>
+  <input type="checkbox" id="showTunnels"> <label for="showTunnels">Show tunnels</label>
 
   <div class="grid-container">
     <!-- Grid will be populated by JavaScript -->
@@ -131,6 +139,7 @@
   <script>
     const gridContainer = document.querySelector('.grid-container');
     const gridSize = 15;
+    const coordSeperator = ',';
 
     if (!window.COORD_NOTES) {
       console.warn('No window.COORD_NOTES found.');
@@ -170,6 +179,65 @@
         gridItem.appendChild(badge);
         gridContainer.appendChild(gridItem);
       }
+    }
+
+    // Create and append the tunnel overlay
+    const tunnelOverlay = document.createElement('div');
+    tunnelOverlay.className = 'tunnel-overlay';
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', gridContainer.clientWidth);
+    svg.setAttribute('height', gridContainer.clientHeight);
+    svg.setAttribute('viewBox', `0 0 ${gridContainer.clientWidth} ${gridContainer.clientHeight}`);
+    tunnelOverlay.appendChild(svg);
+    gridContainer.appendChild(tunnelOverlay);
+
+    // Initially hide the tunnel overlay
+    tunnelOverlay.style.display = 'none';
+
+    // Add event listener to checkbox
+    const checkbox = document.getElementById('showTunnels');
+    checkbox.addEventListener('change', () => {
+      tunnelOverlay.style.display = checkbox.checked ? 'block' : 'none';
+    });
+
+    // Position the tunnel lines dynamically
+    if (!window.TUNNELS) {
+      console.warn('No window.TUNNELS found.');
+    } else {
+      Object.entries(window.TUNNELS).forEach(([from, to]) => {
+        const [fromRow, fromCol] = from.split(coordSeperator).map(Number);
+        const [toRow, toCol] = to.split(coordSeperator).map(Number);
+        const fromIndex = (fromRow - 1) * 15 + (fromCol - 1);
+        const toIndex = (toRow - 1) * 15 + (toCol - 1);
+        const item1 = gridContainer.children[fromIndex];
+        const item2 = gridContainer.children[toIndex];
+        if (item1 && item2) {
+          const rect1 = item1.getBoundingClientRect();
+          const rect2 = item2.getBoundingClientRect();
+          const containerRect = gridContainer.getBoundingClientRect();
+          const x1 = rect1.left + rect1.width / 2 - containerRect.left;
+          const y1 = rect1.top + rect1.height / 2 - containerRect.top;
+          const x2 = rect2.left + rect2.width / 2 - containerRect.left;
+          const y2 = rect2.top + rect2.height / 2 - containerRect.top;
+
+          const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line1.setAttribute('x1', x1);
+          line1.setAttribute('y1', y1);
+          line1.setAttribute('x2', x2);
+          line1.setAttribute('y2', y2);
+          line1.setAttribute('stroke', 'black');
+          line1.setAttribute('stroke-width', '6');
+          line2.setAttribute('x1', x1);
+          line2.setAttribute('y1', y1);
+          line2.setAttribute('x2', x2);
+          line2.setAttribute('y2', y2);
+          line2.setAttribute('stroke', 'yellow');
+          line2.setAttribute('stroke-width', '2');
+          svg.appendChild(line1);
+          svg.appendChild(line2);
+        }
+      });
     }
   </script>
 </body>
