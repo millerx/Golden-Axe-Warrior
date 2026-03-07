@@ -129,11 +129,14 @@ window.COORD_NOTES = {
   "10,13": "Horns",
   "10,14": "Inn: free",
   "11,2": "Dragon Mail",
-  "11,4": "Hint: In Kari-Kari, a town in the nothern desert, you'll find a magic device that will help you climb rocks.",
+  "11,4": "Hint: In Kari-Kari, a town in the nothern desert,\n\
+  you'll find a magic device that will help you climb rocks.",
   "11,5": "Horns",
   "11,6": "Horns",
   "11,9": "Save",
   "11,10": "Temple 1: Axe, Hammer man",
+  "11,12": "Note: This is Altorulia - one of the three continents in this world.\n\
+  Death Adder blocked the path that leads to the central region of this continent.",
   "11,14": "Horns",
   "12,1": "Magic Pot",
   "12,4": "Magic Shop:\n\
@@ -150,12 +153,25 @@ window.COORD_NOTES = {
       Magic Feather: 60h\n\
       Magic Oil: 130h",
   "12,10": "Heart",
+  "12,12": "Use Bell here to remove grave",
+  "12,14": "Hint: Something awful occurred in my hometown, Halls!\n\
+  It's so awful - I don't even want to talk about it!",
+  "12,15": "Town: Halls\n\
+    Save\n\
+    Inn: 40h",
   "13,6": "Save",
   "13,7": "Temple 2: Torch, Dragon",
   "13,8": "Shop:\n\
     Key: 40h\n\
     Magic Feather: 40h\n\
     Magic Oil: 70h",
+  "13,11": "Note: Trivial",
+  "13,12": "Thief: -40 horns",
+  "13,13": "Magic Shop:\n\
+    2 Pots: 20h\n\
+    4 Pots: 30h\n\
+    8 Pots: 50h",
+  "13,15": "Gamble",
   "14,3": "Horns",
   "14,5": "Thief: -20 horns",
   "14,6": "Magic Pot",
@@ -163,6 +179,9 @@ window.COORD_NOTES = {
     Thunder Magic Scroll: Golden Apple",
   "14,8": "~Horns~",
   "14,10": "TODO: Sus. Strong tree",
+  "14,12": "Dungeon 9: Magic Baloon, Fake Adder",
+  "14,13": "Magic Pot",
+  "14,15": "Horns",
   "15,1": "Town: Riksas' Golden Apples\n\
     Save\n\
     Inn: 20h\n\
@@ -179,7 +198,19 @@ window.COORD_NOTES = {
   "15,10": "Shop:\n\
     Knight's Shield: 250h\n\
     Meat: 30h\n\
-    Magic Oil: 110h"
+    Magic Oil: 110h",
+  "15,11": "Save",
+  "15,12": "Note: Trivial",
+  "15,13": "Shop:\n\
+    Golden Apple: 40h",
+  "15,15": "Town: Aires\n\
+    Save\n\
+    Inn: 40h\n\
+    Shop:\n\
+      Golden Apple: 100h\n\
+      Magic Feather: 60h\n\
+      Magic Oil: 130h\n\
+    Hint: Unless you use the Golden Axe, Death Adder will never die!",
 };
 
 window.TUNNELS = {
