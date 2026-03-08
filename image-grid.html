@@ -116,6 +116,7 @@
       top: 0;
       left: 0;
       pointer-events: none;
+      z-index: 10;
     }
   </style>
 </head>
@@ -127,6 +128,7 @@
 
   <div class="grid-container">
     <!-- Grid will be populated by JavaScript -->
+    <div class="tunnel-overlay"><svg></svg></div>
   </div>
 
   <div class="coordinate-headers" id="coordinateHeaders">
@@ -181,15 +183,12 @@
       }
     }
 
-    // Create and append the tunnel overlay
-    const tunnelOverlay = document.createElement('div');
-    tunnelOverlay.className = 'tunnel-overlay';
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    // Get the tunnel overlay
+    const tunnelOverlay = document.querySelector('.tunnel-overlay');
+    const svg = tunnelOverlay.querySelector('svg');
     svg.setAttribute('width', gridContainer.clientWidth);
     svg.setAttribute('height', gridContainer.clientHeight);
     svg.setAttribute('viewBox', `0 0 ${gridContainer.clientWidth} ${gridContainer.clientHeight}`);
-    tunnelOverlay.appendChild(svg);
-    gridContainer.appendChild(tunnelOverlay);
 
     // Initially hide the tunnel overlay
     tunnelOverlay.style.display = 'none';
@@ -209,8 +208,9 @@
         const [toRow, toCol] = to.split(coordSeperator).map(Number);
         const fromIndex = (fromRow - 1) * gridSize + (fromCol - 1);
         const toIndex = (toRow - 1) * gridSize + (toCol - 1);
-        const item1 = gridContainer.children[fromIndex];
-        const item2 = gridContainer.children[toIndex];
+        const gridItems = gridContainer.querySelectorAll('.grid-item');
+        const item1 = gridItems[fromIndex];
+        const item2 = gridItems[toIndex];
         if (item1 && item2) {
           const rect1 = item1.getBoundingClientRect();
           const rect2 = item2.getBoundingClientRect();
