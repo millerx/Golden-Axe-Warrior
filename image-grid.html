@@ -207,8 +207,8 @@
       Object.entries(window.TUNNELS).forEach(([from, to]) => {
         const [fromRow, fromCol] = from.split(coordSeperator).map(Number);
         const [toRow, toCol] = to.split(coordSeperator).map(Number);
-        const fromIndex = (fromRow - 1) * 15 + (fromCol - 1);
-        const toIndex = (toRow - 1) * 15 + (toCol - 1);
+        const fromIndex = (fromRow - 1) * gridSize + (fromCol - 1);
+        const toIndex = (toRow - 1) * gridSize + (toCol - 1);
         const item1 = gridContainer.children[fromIndex];
         const item2 = gridContainer.children[toIndex];
         if (item1 && item2) {
