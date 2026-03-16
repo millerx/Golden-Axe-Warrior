@@ -16,7 +16,7 @@ window.COORD_NOTES = {
   "2,6": "Hint: The Dwarf's village is in the west.",
   "2,8": "Plate Mail",
   "2,10": "Temple 8: Thieve's Key, Mage",
-  "2,13": "TODO: Sus. Strong trees",
+  "2,13": "Fire Magic Scroll",
   "2,15": "Town: Erin\n\
     Save\n\
     Inn: 40h\n\
@@ -33,6 +33,7 @@ window.COORD_NOTES = {
   "3,5": "Shop:\n\
     Golden Apple: 40h",
   "3,7": "Tunnel: 10h to 8x8",
+  "3,12": "Hint: Trvial",
   "3,13": "Tunnel: 10h to 1x11",
   "3,15": "Hint: (Trivial)",
   "4,1": "Thief: -30 horns",
@@ -95,6 +96,7 @@ window.COORD_NOTES = {
   "8,3": "Hint: (Trivial)",
   "8,7": "Hint: The Earth Magic breaks most rocks",
   "8,8": "Tunnel: 10h to 3x7",
+  "8,10": "Dungeon 10: Golden Axe, Death Adder",
   "8,12": "Temple 6: Ice Bell, Red Dragon",
   "8,13": "Hint: (Trivial)",
   "8,14": "Shop:\n\
@@ -124,7 +126,7 @@ window.COORD_NOTES = {
     Magic Feather: 40h\n\
     Magic Oil: 70h",
   "10,8": "Gamble",
-  "10,11": "TODO: Sus. Strong tree",
+  "10,11": "Water Magic Scroll",
   "10,12": "Hint: (Trivial)",
   "10,13": "Horns",
   "10,14": "Inn: free",
@@ -154,8 +156,7 @@ window.COORD_NOTES = {
       Magic Oil: 130h",
   "12,10": "Heart",
   "12,12": "Use Bell here to remove grave",
-  "12,14": "Hint: Something awful occurred in my hometown, Halls!\n\
-  It's so awful - I don't even want to talk about it!",
+  "12,14": "Hint: (Trivial)",
   "12,15": "Town: Halls\n\
     Save\n\
     Inn: 40h",
@@ -165,7 +166,7 @@ window.COORD_NOTES = {
     Key: 40h\n\
     Magic Feather: 40h\n\
     Magic Oil: 70h",
-  "13,11": "Note: Trivial",
+  "13,11": "Hint: (Trivial)",
   "13,12": "Thief: -40 horns",
   "13,13": "Magic Shop:\n\
     2 Pots: 20h\n\
@@ -182,7 +183,7 @@ window.COORD_NOTES = {
   "14,12": "Dungeon 9: Magic Baloon, Fake Adder",
   "14,13": "Magic Pot",
   "14,15": "Horns",
-  "15,1": "Town: Riksas' Golden Apples\n\
+  "15,1": "Town: Riksas\n\
     Save\n\
     Inn: 20h\n\
     Shop:\n\
@@ -200,7 +201,7 @@ window.COORD_NOTES = {
     Meat: 30h\n\
     Magic Oil: 110h",
   "15,11": "Save",
-  "15,12": "Note: Trivial",
+  "15,12": "Hint: (Trivial)",
   "15,13": "Shop:\n\
     Golden Apple: 40h",
   "15,15": "Town: Aires\n\
