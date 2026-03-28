@@ -1,8 +1,8 @@
 window.COORD_NOTES = {
-  "9,6": "Start here!",
+  "9,F": "Start here!",
 };
 
 window.TUNNELS = {
   //start: end
-  //"0,0": "0,0",
+  //"1,A": "1,A",
 }

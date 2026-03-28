@@ -5,12 +5,13 @@
 #
 # Given that image files are in an imgs subdirectory.
 # Filenames of these image files is y_x.png. For example: 1_4.png 2_3.png
-# X and Y axes are 1 to 15.
+# X and Y axes are 1 to 15 in filenames. (In the UI, X coordinates display as
+# letters A-O, which correspond to numeric columns 1-15.)
 #
 # For example:
 #   shiftdown.sh 3
-#   1_4.png becomes 4_4.png
-#   12_3.png becomes 15_3.png
+#   1_4.png becomes 4_4.png (UI: 1,D becomes 4,D)
+#   12_3.png becomes 15_3.png (UI: 12,C becomes 15,C)
 #
 # Usage:
 #   shiftdown.sh shift

@@ -143,6 +143,15 @@
     const gridSize = 15;
     const coordSeperator = ',';
 
+    // Helper functions for column number <-> letter conversion
+    function colToLetter(col) {
+      return String.fromCharCode(64 + col); // 1->A, 2->B, ..., 15->O
+    }
+
+    function letterToCol(letter) {
+      return letter.charCodeAt(0) - 64; // A->1, B->2, ..., O->15
+    }
+
     if (!window.COORD_NOTES) {
       console.warn('No window.COORD_NOTES found.');
     }
@@ -151,7 +160,7 @@
     // Generate the grid
     for (let row = 1; row <= gridSize; row++) {
       for (let col = 1; col <= gridSize; col++) {
-        const coordinate = `${row},${col}`;
+        const coordinate = `${row}${coordSeperator}${colToLetter(col)}`;
         const anchorId = `coord-${row}-${col}`;
 
         // Create grid item
@@ -204,8 +213,12 @@
       console.warn('No window.TUNNELS found.');
     } else {
       Object.entries(window.TUNNELS).forEach(([from, to]) => {
-        const [fromRow, fromCol] = from.split(coordSeperator).map(Number);
-        const [toRow, toCol] = to.split(coordSeperator).map(Number);
+        const [fromRowStr, fromColLetter] = from.split(coordSeperator);
+        const [toRowStr, toColLetter] = to.split(coordSeperator);
+        const fromRow = Number(fromRowStr);
+        const fromCol = letterToCol(fromColLetter);
+        const toRow = Number(toRowStr);
+        const toCol = letterToCol(toColLetter);
         const fromIndex = (fromRow - 1) * gridSize + (fromCol - 1);
         const toIndex = (toRow - 1) * gridSize + (toCol - 1);
         const gridItems = gridContainer.querySelectorAll('.grid-item');
