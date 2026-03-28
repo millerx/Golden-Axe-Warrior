@@ -2,6 +2,20 @@
 
 Interactive map for Golden Axe Warrior screenshots and per-screen notes.
 
+## Setup
+
+1. Install imagemagick:
+
+```sh
+brew install imagemagick
+```
+
+2. Copy `addimg.sh` to `~/Documents/RetroArch/screenshots`:
+
+```sh
+cp addimg.sh ~/Documents/RetroArch/screenshots/
+```
+
 ## Usage
 
 - Open [image-grid.html](image-grid.html) in your browser to view the map.
