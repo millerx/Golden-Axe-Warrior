@@ -44,24 +44,30 @@ cat dungeon_map.txt | pbcopy
 
 ## Testing
 
-### Install BATS
+### Bash tests
 
-On macOS with Homebrew:
+Install BATS and run the shell suite for `addimg.sh`:
 
 ```sh
 brew install bats-core
-```
-
-### Running Tests
-
-Run the test suite for `addimg.sh`:
-
-```sh
 bats test/addimg.bats
 ```
 
-Run with verbose output:
+### JavaScript tests
+
+Install dependencies and run the Jest suite for `image-grid.js`:
 
 ```sh
-bats -v test/addimg.bats
+npm install
+npm test
+```
+
+This will execute `test/image-grid.test.js` using the project's Jest configuration.
+
+### Combined tests
+
+Run both the JavaScript and Bash tests in one command:
+
+```sh
+npm run test:all
 ```
