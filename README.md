@@ -41,3 +41,27 @@ I chose not commit dungeon maps.
 ```sh
 cat dungeon_map.txt | pbcopy
 ```
+
+## Testing
+
+### Install BATS
+
+On macOS with Homebrew:
+
+```sh
+brew install bats-core
+```
+
+### Running Tests
+
+Run the test suite for `addimg.sh`:
+
+```sh
+bats test/addimg.bats
+```
+
+Run with verbose output:
+
+```sh
+bats -v test/addimg.bats
+```
