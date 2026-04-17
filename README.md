@@ -31,7 +31,7 @@ cp addimg.sh ~/Documents/RetroArch/screenshots/
 
 ```sh
 cd ~/Documents/RetroArch/screenshots/
-sh addimg.sh 11_12
+sh addimg.sh 9,F
 ```
 
 ## Notes

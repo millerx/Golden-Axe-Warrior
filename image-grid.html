@@ -123,7 +123,7 @@
 
 <body>
   <h1 class="page-title">Golden Axe Warrior</h1>
-  <p>The game starts at screen 9,6</p>
+  <p>The game starts at screen 9,F</p>
   <input type="checkbox" id="showTunnels"> <label for="showTunnels">Show tunnels</label>
 
   <div class="grid-container">
@@ -143,29 +143,19 @@
     const gridSize = 15;
     const coordSeperator = ',';
 
-    // Helper functions for column number <-> letter conversion
-    function colToLetter(col) {
-      return String.fromCharCode(64 + col); // 1->A, 2->B, ..., 15->O
-    }
-
-    function letterToCol(letter) {
-      return letter.charCodeAt(0) - 64; // A->1, B->2, ..., O->15
-    }
-
-    if (!window.COORD_NOTES) {
-      console.warn('No window.COORD_NOTES found.');
-    }
+    if (!window.COORD_NOTES) console.warn('No window.COORD_NOTES found.');
     const notesData = window.COORD_NOTES || {};
 
     // Generate the grid
     for (let row = 1; row <= gridSize; row++) {
-      for (let col = 1; col <= gridSize; col++) {
-        const coordinate = `${row}${coordSeperator}${colToLetter(col)}`;
-        const anchorId = `coord-${row}-${col}`;
+      for (let colCode = 65; colCode < 65 + gridSize; colCode++) {
+        const col = String.fromCharCode(colCode);
+        const coordinate = `${row}${coordSeperator}${col}`;
 
         // Create grid item
         const gridItem = document.createElement('div');
         gridItem.className = 'grid-item';
+        gridItem.setAttribute('data-coord', `${row}_${col}`);
 
         // Create image
         const img = document.createElement('img');
@@ -208,50 +198,47 @@
       tunnelOverlay.style.display = checkbox.checked ? 'block' : 'none';
     });
 
-    // Position the tunnel lines dynamically
-    if (!window.TUNNELS) {
-      console.warn('No window.TUNNELS found.');
-    } else {
-      Object.entries(window.TUNNELS).forEach(([from, to]) => {
-        const [fromRowStr, fromColLetter] = from.split(coordSeperator);
-        const [toRowStr, toColLetter] = to.split(coordSeperator);
-        const fromRow = Number(fromRowStr);
-        const fromCol = letterToCol(fromColLetter);
-        const toRow = Number(toRowStr);
-        const toCol = letterToCol(toColLetter);
-        const fromIndex = (fromRow - 1) * gridSize + (fromCol - 1);
-        const toIndex = (toRow - 1) * gridSize + (toCol - 1);
-        const gridItems = gridContainer.querySelectorAll('.grid-item');
-        const item1 = gridItems[fromIndex];
-        const item2 = gridItems[toIndex];
-        if (item1 && item2) {
-          const rect1 = item1.getBoundingClientRect();
-          const rect2 = item2.getBoundingClientRect();
-          const containerRect = gridContainer.getBoundingClientRect();
-          const x1 = rect1.left + rect1.width / 2 - containerRect.left;
-          const y1 = rect1.top + rect1.height / 2 - containerRect.top;
-          const x2 = rect2.left + rect2.width / 2 - containerRect.left;
-          const y2 = rect2.top + rect2.height / 2 - containerRect.top;
-
-          const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-          const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-          line1.setAttribute('x1', x1);
-          line1.setAttribute('y1', y1);
-          line1.setAttribute('x2', x2);
-          line1.setAttribute('y2', y2);
-          line1.setAttribute('stroke', 'black');
-          line1.setAttribute('stroke-width', '6');
-          line2.setAttribute('x1', x1);
-          line2.setAttribute('y1', y1);
-          line2.setAttribute('x2', x2);
-          line2.setAttribute('y2', y2);
-          line2.setAttribute('stroke', 'yellow');
-          line2.setAttribute('stroke-width', '2');
-          svg.appendChild(line1);
-          svg.appendChild(line2);
-        }
-      });
+    // Helper function to get center coordinates of an item relative to container
+    function getCenter(item, containerRect) {
+      const rect = item.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2 - containerRect.left,
+        y: rect.top + rect.height / 2 - containerRect.top
+      };
     }
+
+    // Helper function to create and configure tunnel line element
+    function createTunnelLine(point1, point2, stroke, strokeWidth) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', point1.x);
+      line.setAttribute('y1', point1.y);
+      line.setAttribute('x2', point2.x);
+      line.setAttribute('y2', point2.y);
+      line.setAttribute('stroke', stroke);
+      line.setAttribute('stroke-width', strokeWidth);
+      return line;
+    }
+
+    // Position the tunnel lines dynamically
+    if (!window.TUNNELS) console.warn('No window.TUNNELS found.');
+    const tunnelsData = window.TUNNELS || {};
+    const containerRect = gridContainer.getBoundingClientRect();
+
+    Object.entries(tunnelsData).forEach(([from, to]) => {
+      const [fromRow, fromCol] = from.split(coordSeperator);
+      const [toRow, toCol] = to.split(coordSeperator);
+      const item1 = gridContainer.querySelector(`[data-coord="${fromRow}_${fromCol}"]`);
+      const item2 = gridContainer.querySelector(`[data-coord="${toRow}_${toCol}"]`);
+      if (!item1) console.warn(`Failed to find tunnel start at ${fromRow}_${fromCol}`);
+      else if (!item2) console.warn(`Failed to find tunnel end at ${toRow}_${toCol}`);
+      else {
+        const center1 = getCenter(item1, containerRect);
+        const center2 = getCenter(item2, containerRect);
+
+        svg.appendChild(createTunnelLine(center1, center2, 'black', '6'));
+        svg.appendChild(createTunnelLine(center1, center2, 'yellow', '2'));
+      }
+    });
   </script>
 </body>
 
