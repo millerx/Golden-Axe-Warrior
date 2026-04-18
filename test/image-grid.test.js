@@ -8,19 +8,18 @@ describe('image-grid module', () => {
         <div class="tunnel-overlay"><svg></svg></div>
       </div>
     `;
+    window.COORD_NOTES = {};
+    window.TUNNELS = {};
   });
 
   test('creates a 15x15 grid of items', () => {
-    const gridContainer = document.querySelector('.grid-container');
-    const checkbox = document.getElementById('showTunnels');
-    initGrid({ gridContainer, checkbox });
+    initGrid();
     expect(document.querySelectorAll('.grid-item').length).toBe(225);
   });
 
   test('creates a tooltip when notes data contains a coordinate', () => {
-    const gridContainer = document.querySelector('.grid-container');
-    const checkbox = document.getElementById('showTunnels');
-    initGrid({ gridContainer, checkbox, notesData: { '1,A': 'Test note' } });
+    window.COORD_NOTES = { '1,A': 'Test note' };
+    initGrid();
 
     const badge = document.querySelector('.coordinate-badge');
     expect(badge).not.toBeNull();
@@ -31,11 +30,10 @@ describe('image-grid module', () => {
   });
 
   test('checkbox toggles tunnel overlay visibility', () => {
-    const gridContainer = document.querySelector('.grid-container');
-    const checkbox = document.getElementById('showTunnels');
-    initGrid({ gridContainer, checkbox });
+    initGrid();
 
     const overlay = document.querySelector('.tunnel-overlay');
+    const checkbox = document.getElementById('showTunnels');
     expect(overlay.style.display).toBe('none');
 
     checkbox.checked = true;

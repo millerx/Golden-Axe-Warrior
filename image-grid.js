@@ -20,22 +20,65 @@ function createTunnelLine(point1, point2, stroke, strokeWidth) {
   return line;
 }
 
-function initGrid({ gridContainer, checkbox, notesData = {}, tunnelsData = {} } = {}) {
-  if (typeof gridContainer === 'string') {
-    gridContainer = document.querySelector(gridContainer);
-  }
-  if (!gridContainer) {
-    throw new Error('Grid container element is required.');
+function initTunnels(gridContainer) {
+  const showTunnelsChk = document.getElementById('showTunnels');
+  const tunnelOverlay = gridContainer.querySelector('.tunnel-overlay');
+  if (!tunnelOverlay) {
+    return;
   }
 
-  const tunnelOverlay = gridContainer.querySelector('.tunnel-overlay') || createTunnelOverlay(gridContainer);
-  const svg = tunnelOverlay.querySelector('svg') || createTunnelSvg(tunnelOverlay);
+  const svg = tunnelOverlay.querySelector('svg');
+  if (!svg) {
+    return;
+  }
 
-  Array.from(gridContainer.children).forEach((child) => {
-    if (!child.classList.contains('tunnel-overlay')) {
-      gridContainer.removeChild(child);
+  svg.setAttribute('width', gridContainer.clientWidth);
+  svg.setAttribute('height', gridContainer.clientHeight);
+  svg.setAttribute('viewBox', `0 0 ${gridContainer.clientWidth} ${gridContainer.clientHeight}`);
+
+  tunnelOverlay.style.display = 'none';
+
+  if (showTunnelsChk) {
+    showTunnelsChk.addEventListener('change', () => {
+      tunnelOverlay.style.display = showTunnelsChk.checked ? 'block' : 'none';
+    });
+  }
+
+  const tunnelsData = window.TUNNELS || {};
+  const containerRect = gridContainer.getBoundingClientRect();
+  Object.entries(tunnelsData).forEach(([from, to]) => {
+    const [fromRow, fromCol] = from.split(coordSeparator);
+    const [toRow, toCol] = to.split(coordSeparator);
+
+    const item1 = gridContainer.querySelector(`[data-coord="${fromRow}_${fromCol}"]`);
+    if (!item1) {
+        console.warn(`[tunnel] Could not find grid element ${fromRow}_${fromCol}`);
+        return;
     }
+    const item2 = gridContainer.querySelector(`[data-coord="${toRow}_${toCol}"]`);
+    if (!item2) {
+        console.warn(`[tunnel] Could not find grid element ${toRow}_${toCol}`);
+        return;
+    }
+
+    const center1 = getCenter(item1, containerRect);
+    const center2 = getCenter(item2, containerRect);
+    svg.appendChild(createTunnelLine(center1, center2, 'black', '6'));
+    svg.appendChild(createTunnelLine(center1, center2, 'yellow', '2'));
   });
+}
+
+function initGrid() {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
+  const gridContainer = document.querySelector('.grid-container');
+  if (!gridContainer) {
+    return;
+  }
+
+  const notesData = window.COORD_NOTES || {};
 
   for (let row = 1; row <= gridSize; row++) {
     for (let colCode = 65; colCode < 65 + gridSize; colCode++) {
@@ -64,81 +107,30 @@ function initGrid({ gridContainer, checkbox, notesData = {}, tunnelsData = {} } 
       }
 
       gridItem.appendChild(badge);
-      gridContainer.insertBefore(gridItem, tunnelOverlay);
+      // Insert grid item without referencing tunnelOverlay
+      gridContainer.appendChild(gridItem);
     }
   }
 
-  svg.setAttribute('width', gridContainer.clientWidth);
-  svg.setAttribute('height', gridContainer.clientHeight);
-  svg.setAttribute('viewBox', `0 0 ${gridContainer.clientWidth} ${gridContainer.clientHeight}`);
-
-  tunnelOverlay.style.display = 'none';
-
-  if (checkbox) {
-    checkbox.addEventListener('change', () => {
-      tunnelOverlay.style.display = checkbox.checked ? 'block' : 'none';
-    });
-  }
-
-  const containerRect = gridContainer.getBoundingClientRect();
-  Object.entries(tunnelsData).forEach(([from, to]) => {
-    const [fromRow, fromCol] = from.split(coordSeparator);
-    const [toRow, toCol] = to.split(coordSeparator);
-    const item1 = gridContainer.querySelector(`[data-coord="${fromRow}_${fromCol}"]`);
-    const item2 = gridContainer.querySelector(`[data-coord="${toRow}_${toCol}"]`);
-    if (!item1 || !item2) {
-      return;
-    }
-
-    const center1 = getCenter(item1, containerRect);
-    const center2 = getCenter(item2, containerRect);
-    svg.appendChild(createTunnelLine(center1, center2, 'black', '6'));
-    svg.appendChild(createTunnelLine(center1, center2, 'yellow', '2'));
-  });
-}
-
-function createTunnelOverlay(gridContainer) {
-  const overlay = document.createElement('div');
-  overlay.className = 'tunnel-overlay';
-  const svg = createTunnelSvg(overlay);
-  overlay.appendChild(svg);
-  gridContainer.appendChild(overlay);
-  return overlay;
-}
-
-function createTunnelSvg(overlay) {
-  return document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-}
-
-function startGrid() {
-  if (typeof document === 'undefined') {
-    return;
-  }
-
-  const gridContainer = document.querySelector('.grid-container');
-  const checkbox = document.getElementById('showTunnels');
-  const notesData = window.COORD_NOTES || {};
-  const tunnelsData = window.TUNNELS || {};
-
-  if (gridContainer) {
-    initGrid({ gridContainer, checkbox, notesData, tunnelsData });
-  }
+  // Initialize tunnels after grid is set up
+  initTunnels(gridContainer);
 }
 
 if (typeof window !== 'undefined') {
   window.initGrid = initGrid;
+  window.initTunnels = initTunnels;
   window.getCenter = getCenter;
   window.createTunnelLine = createTunnelLine;
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { initGrid, getCenter, createTunnelLine };
+  module.exports = { initGrid, initTunnels, getCenter, createTunnelLine };
 }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startGrid);
+    document.addEventListener('DOMContentLoaded', initGrid);
   } else {
-    startGrid();
+    initGrid();
   }
 }
